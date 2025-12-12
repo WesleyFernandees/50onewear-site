@@ -289,6 +289,13 @@
       background: rgba(16,24,39,0.06);
       border: 1px solid rgba(16,24,39,0.10);
     }
+    
+    .contact-img{
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+      display: block;
+    }
     .contact-title { font-weight: 700; }
     .contact-text { font-size: 13px; color: var(--text-soft); margin-top: 2px; }
 
@@ -308,8 +315,6 @@
 
   <div class="mobile-nav-overlay" id="mobileNav">
   <div class="close-menu" onclick="toggleMenu()">×
-  <a href="https://wa.me/5511942916224" target="_blank"><strong>WhatsApp</strong></a>
-  <a href="https://instagram.com/50onewear" target="_blank"><strong>Instagram</strong></a>
 </div>
   <a href="#top" onclick="toggleMenu()">Início</a>
   <a href="#cores" onclick="toggleMenu()">Cores</a>
@@ -351,21 +356,7 @@
   <path d="M6 18l2-2M8 20l2-2M10 22l2-2M12 16l2-2M14 18l2-2M16 20l2-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
 </svg><span>Tabela de Medidas</span>
           </button>
-          <div class="header-social" aria-label="Redes e contato">
-            <a class="icon-btn" href="https://wa.me/5511942916224" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-  <path d="M21 12a8 8 0 0 1-8 8H7l-4 3 1.2-4.7A8 8 0 1 1 21 12Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-</svg>
-            </a>
-            <a class="icon-btn" href="https://instagram.com/50onewear" target="_blank" rel="noopener" aria-label="Abrir Instagram">
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-  <rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
-  <circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
-  <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
-</svg>
-            </a>
-          </div>
-        </div>
+</div>
 
         <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
 
@@ -537,9 +528,7 @@
 
     <div class="contact-grid">
       <a class="contact-card" href="https://wa.me/5511942916224" target="_blank" rel="noopener">
-        <div class="contact-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-  <path d="M21 12a8 8 0 0 1-8 8H7l-4 3 1.2-4.7A8 8 0 1 1 21 12Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-</svg></div>
+        <div class="contact-ic"><img src="assets/whatsapp_icon.png" alt="WhatsApp" class="contact-img"></div>
         <div>
           <div class="contact-title">WhatsApp</div>
           <div class="contact-text">Atendimento rápido</div>
@@ -547,11 +536,7 @@
       </a>
 
       <a class="contact-card" href="https://instagram.com/50onewear" target="_blank" rel="noopener">
-        <div class="contact-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-  <rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
-  <circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
-  <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
-</svg></div>
+        <div class="contact-ic"><img src="assets/ícone_do_instagram.png" alt="Instagram" class="contact-img"></div>
         <div>
           <div class="contact-title">Instagram</div>
           <div class="contact-text">@50onewear</div>
@@ -559,10 +544,7 @@
       </a>
 
       <a class="contact-card" href="https://shopee.com.br/shop/528135692" target="_blank" rel="noopener">
-        <div class="contact-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-  <path d="M7 7V6a5 5 0 0 1 10 0v1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-  <path d="M6 7h12l1 14H5L6 7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-</svg></div>
+        <div class="contact-ic"><img src="assets/shopee_icon.png" alt="Shopee" class="contact-img"></div>
         <div>
           <div class="contact-title">Shopee</div>
           <div class="contact-text">Comprar com segurança</div>
@@ -576,17 +558,7 @@
 <footer id="rodape">
       <div class="container footer-row">
         <div>© 2025 50OneWear.</div>
-        <div class="footer-links">
-          <a href="https://wa.me/5511942916224" target="_blank"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-  <path d="M21 12a8 8 0 0 1-8 8H7l-4 3 1.2-4.7A8 8 0 1 1 21 12Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-</svg><span>WhatsApp</span></a>
-          <a href="https://instagram.com/50onewear" target="_blank"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-  <rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
-  <circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
-  <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
-</svg><span>Instagram</span></a>
-        </div>
-      </div>
+</div>
     </footer>
   </div>
 
