@@ -3,986 +3,364 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
   <title>50oneWear – Premium Plain Tees</title>
+  <meta name="description" content="Camisetas lisas premium (Slim Fit). Algodão com elastano. Simplicidade que funciona.">
+  <meta property="og:title" content="50OneWear – Premium Plain Tees">
+  <meta property="og:image" content="assets/camisa_branca.jpg">
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-	    :root {
-	      --bg: #f5f2e9; /* Fundo creme/bege claro */
-	      --bg-soft: #f0ece2;
-	      --text-main: #171717; /* Preto suave */
-	      --text-soft: #555;
-	      --accent: #101827; /* Preto/Navy Profundo para um toque de luxo */
-	      --accent-soft: #334155;
-	      --border-soft: #e0dbcF;
-	      --card-bg: #ffffff;
-	      --radius-xl: 18px;
-	      --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.06 ); /* Sombra mais sutil */
-	    }
+    /* VARIÁVEIS DE COR */
+    :root {
+      --bg: #f5f2e9; 
+      --text-main: #171717;
+      --text-soft: #555;
+      --accent: #101827; 
+      --card-bg: #ffffff;
+      --radius-xl: 18px;
+    }
 
+    /* RESETS BÁSICOS */
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
+    html { scroll-behavior: smooth; } /* Scroll suave ao clicar no menu */
+    
     body {
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text-main);
       -webkit-font-smoothing: antialiased;
     }
 
     img { max-width: 100%; display: block; }
-
     a { text-decoration: none; color: inherit; }
-
     .page { min-height: 100vh; display: flex; flex-direction: column; }
 
     .container {
-      width: 100%;
-      max-width: 1120px;
-      padding: 0 20px;
-      margin: 0 auto;
+      width: 100%; max-width: 1120px; padding: 0 20px; margin: 0 auto;
     }
 
+    /* HEADER & MENU */
     header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
+      position: sticky; top: 0; z-index: 50;
       backdrop-filter: blur(18px);
-      background: rgba(245, 242, 233, 0.85);
-      border-bottom: 1px solid rgba(209, 213, 219, 0.4);
+      background: rgba(245, 242, 233, 0.9);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
     }
-
     .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 0;
+      display: flex; align-items: center; justify-content: space-between; padding: 14px 0;
+    }
+    .logo-mark { display: flex; align-items: center; gap: 10px; }
+    .logo-mark img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+    .logo-word { font-family: 'Playfair Display', serif; font-size: 24px; }
+    
+    /* MENU DESKTOP */
+    nav.desktop-nav { display: flex; gap: 20px; font-size: 14px; color: var(--text-soft); }
+    nav.desktop-nav a:hover { color: var(--accent); text-decoration: underline; }
+
+    /* MENU MOBILE (Botão) */
+    .mobile-menu-btn {
+      display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-main);
+    }
+    
+    /* MENU MOBILE (Tela Cheia) */
+    .mobile-nav-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(255,255,255,0.98); z-index: 100;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px;
+      font-size: 20px; opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .mobile-nav-overlay.open { opacity: 1; pointer-events: all; }
+    .close-menu { position: absolute; top: 20px; right: 20px; font-size: 30px; cursor: pointer; }
+
+    /* BOTÕES */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 10px 24px; border-radius: 999px; font-size: 14px; cursor: pointer;
+      transition: all .2s; font-weight: 500;
+    }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
+    
+    .btn-ghost { background: transparent; border: 1px solid #d1d5db; color: var(--text-main); }
+    .btn-ghost:hover { background: #fff; transform: translateY(-2px); }
+
+    /* HERO SECTION */
+    section { padding: 60px 0; }
+    .hero { padding-top: 40px; padding-bottom: 60px; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; }
+    
+    .hero-title {
+      font-family: 'Playfair Display', serif; font-size: clamp(36px, 5vw, 52px);
+      line-height: 1.1; margin-bottom: 16px;
+    }
+    .hero-subtitle { font-size: 16px; color: var(--text-soft); margin-bottom: 24px; line-height: 1.5; }
+    
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; font-size: 12px; }
+    .badge { padding: 6px 12px; border-radius: 20px; background: rgba(255,255,255,0.6); border: 1px solid rgba(0,0,0,0.1); }
+
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+
+    .hero-card {
+      border-radius: var(--radius-xl); overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     }
 
-    .logo-mark { display: flex; align-items: center; gap: 10px; }
+    /* SEÇÕES E CARDS */
+    .section-title { font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 10px; }
+    .section-description { margin-bottom: 30px; color: var(--text-soft); max-width: 600px; }
 
-    .logo-mark img {
-      width: 54px;
-      height: 54px;
-      border-radius: 999px;
+    /* GRID DE CORES */
+    .colors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+    .color-card { background: #fff; padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+    .swatch { width: 32px; height: 32px; border-radius: 50%; margin-bottom: 10px; border: 1px solid #eee; }
+    .swatch.black { background: #000; } .swatch.white { background: #fff; } 
+    .swatch.navy { background: #1a237e; } .swatch.grey { background: #757575; } .swatch.green { background: #2e7d32; }
+
+    /* GALERIA CARROSSEL */
+    .gallery-wrapper { display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px; }
+    .gallery-carousel {
+      border-radius: 18px; overflow: hidden; position: relative;
+      background: #ddd; min-height: 300px; /* Garante altura se a imagem falhar */
+    }
+    .gallery-carousel img {
+      width: 100%; height: auto; display: none; /* Esconde todas */
       object-fit: cover;
     }
-
-	    .logo-word {
-	      font-family: 'Playfair Display', serif;
-	      font-size: 28px; /* Aumentando um pouco o logo */
-	      letter-spacing: 0.03em;
-	    }
-
-    .logo-sub {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--text-soft);
-    }
-
-    nav { display: flex; gap: 20px; font-size: 14px; color: var(--text-soft); }
-
-    nav a { position: relative; padding-bottom: 4px; }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 1px;
-      background: var(--accent);
-      transition: width .18s ease-out;
-    }
-
-    nav a:hover::after { width: 100%; }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 10px 20px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all .18s ease-out;
-      white-space: nowrap;
-    }
-
-	    .btn-primary {
-	      background: var(--accent);
-	      color: #fff;
-	      box-shadow: 0 10px 20px rgba(16, 24, 39, 0.2); /* Sombra mais suave */
-	    }
-	
-	    .btn-primary:hover {
-	      background: #000000; /* Preto puro no hover */
-	      transform: translateY(-1px);
-	      box-shadow: 0 14px 28px rgba(16, 24, 39, 0.3);
-	    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--accent-soft);
-      border-color: var(--border-soft);
-    }
-
-    .btn-ghost:hover {
-      background: rgba(255, 255, 255, 0.9);
-      box-shadow: var(--shadow-soft);
-      transform: translateY(-1px);
-    }
-
-    main { flex: 1; }
-
-    .hero { padding: 56px 0 72px; }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 48px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 11px;
-      color: var(--text-soft);
-      margin-bottom: 12px;
-    }
-
-	    .hero-title {
-	      font-family: 'Playfair Display', serif;
-	      font-size: clamp(42px, 4.5vw, 52px); /* Aumentando o título principal */
-	      line-height: 1.05;
-	      margin-bottom: 18px;
-	    }
-
-    .hero-subtitle {
-      font-size: 16px;
-      color: var(--text-soft);
-      max-width: 420px;
-      margin-bottom: 24px;
-    }
-
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 28px;
-      font-size: 12px;
-    }
-
-    .badge {
-      border-radius: 999px;
-      padding: 6px 12px;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(209, 213, 219, 0.7);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .hero-ctas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-
-    .hero-note { font-size: 12px; color: var(--text-soft); }
-
-    .hero-note strong { color: var(--accent-soft); }
-
-    .hero-media { position: relative; }
-
-	    .hero-card {
-	      border-radius: var(--radius-xl);
-	      overflow: hidden;
-	      background: linear-gradient(135deg, #ece7db, #f8f5ee);
-	      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12); /* Sombra mais pronunciada e elegante */
-	      position: relative;
-	    }
-
-    .hero-card img { width: 100%; height: auto; object-fit: cover; }
-
-    .hero-tag {
-      position: absolute;
-      bottom: 16px;
-      left: 16px;
-      background: rgba(15, 23, 42, 0.92);
-      color: #fff;
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-size: 11px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .hero-tag span { opacity: 0.86; }
-
-	    .floating-card {
-	      padding: 14px 20px; /* Mais padding */
-	      font-size: 12px; /* Fonte um pouco maior */
-	      background: #ffffff;
-	      border-radius: 999px;
-	      border: 1px solid rgba(209, 213, 219, 0.8);
-	      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1); /* Sombra mais suave */
-	      display: flex;
-	      flex-direction: column;
-	      align-items: flex-start;
-	      gap: 4px;
-	    }
-
-	    .hero-feature-card {
-	      margin-top: 18px;
-	      max-width: 320px;
-	    }
-
-	    .hero-media .floating-card {
-	      position: absolute;
-	      top: -16px;
-	      right: -10px;
-	    }
-
-	    .floating-card strong { font-size: 14px; } /* Aumentando o destaque */
-
-    .floating-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.28);
-    }
-
-    section { padding: 64px 0; }
-
-    .section-heading { display: flex; flex-direction: column; gap: 6px; margin-bottom: 32px; }
-
-	    .section-title { font-family: 'Playfair Display', serif; font-size: 32px; } /* Aumentando títulos de seção */
-
-    .section-description {
-      font-size: 14px;
-      color: var(--text-soft);
-      max-width: 520px;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-      gap: 36px;
-      align-items: center;
-    }
-
-    .about-text p {
-      font-size: 14px;
-      color: var(--text-soft);
-      line-height: 1.6;
-      margin-bottom: 14px;
-    }
-
-    .about-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .about-list li {
-      font-size: 13px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(209, 213, 219, 0.8);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-	    .about-card {
-	      background: var(--card-bg);
-	      border-radius: var(--radius-xl);
-	      padding: 28px 28px 24px; /* Mais padding */
-	      box-shadow: var(--shadow-soft);
-	      border: 1px solid rgba(209, 213, 219, 0.7);
-	      display: grid;
-	      gap: 12px;
-	      font-size: 14px; /* Fonte um pouco maior */
-	    }
-
-    .about-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-size: 12px;
-      color: var(--text-soft);
-    }
-
-    .meta-pill {
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: var(--bg-soft);
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
-      gap: 28px;
-      align-items: flex-start;
-    }
-
-    .feature-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 16px;
-    }
-
-	    .feature-card {
-	      background: var(--card-bg);
-	      border-radius: 16px;
-	      padding: 20px 20px 18px; /* Mais padding */
-	      border: 1px solid rgba(209, 213, 219, 0.8);
-	      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
-	    }
-
-    .feature-card h3 { font-size: 15px; margin-bottom: 4px; }
-
-    .feature-card p { font-size: 13px; color: var(--text-soft); line-height: 1.5; }
-
-	    .specs {
-	      background: rgba(255, 255, 255, 0.9);
-	      border-radius: 16px;
-	      padding: 24px 24px 20px; /* Mais padding */
-	      border: 1px solid rgba(209, 213, 219, 0.8);
-	      font-size: 14px; /* Fonte um pouco maior */
-	    }
-
-    .specs-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 6px 0;
-      border-bottom: 1px dashed rgba(209, 213, 219, 0.8);
-    }
-
-    .specs-row:last-child { border-bottom: none; }
-
-    .specs-label { color: var(--text-soft); }
-
-    .specs-value { font-weight: 500; }
-
-    .colors-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 16px;
-    }
-
-	    .color-card {
-	      border-radius: 16px;
-	      background: var(--card-bg);
-	      padding: 18px;
-	      border: 1px solid rgba(209, 213, 219, 0.8);
-	      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
-	    }
-
-    .swatch {
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      margin-bottom: 12px;
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
-    }
-
-    .swatch.white { background: #f7f7f7; border: 1px solid #e5e7eb; }
-    .swatch.black { background: #111827; }
-    .swatch.grey  { background: #9ca3af; }
-    .swatch.navy { background: #171c28; }
-    .swatch.green { background: #0f3f35; }
-
-    .color-name { font-weight: 600; margin-bottom: 4px; }
-
-    .color-note { color: var(--text-soft); font-size: 12px; }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: 12px;
-    }
-
-    .pill {
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(209, 213, 219, 0.9);
-      background: rgba(255, 255, 255, 0.9);
-    }
-
-	    .cta-block {
-	      background: var(--accent); /* Usando a nova cor accent */
-	      color: #f9fafb;
-	      border-radius: 22px;
-	      padding: 36px 32px 32px; /* Mais padding */
-	      display: grid;
-	      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-	      gap: 24px;
-	      align-items: center;
-	      box-shadow: 0 20px 45px rgba(0,0,0,0.55);
-	    }
-
-	    .cta-block h2 {
-	      font-family: 'Playfair Display', serif;
-	      font-size: 28px; /* Aumentando o título do CTA */
-	      margin-bottom: 10px;
-	    }
-
-    .cta-block p { font-size: 14px; color: #e5e7eb; margin-bottom: 18px; }
-
-    .cta-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: 11px;
-    }
-
-    .cta-pill {
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      color: #e5e7eb;
-    }
-
-    .cta-side { font-size: 12px; color: #d1d5db; }
-
-    .cta-side strong { color: #f9fafb; }
-
-    footer {
-      border-top: 1px solid rgba(209, 213, 219, 0.7);
-      padding: 22px 0 26px;
-      font-size: 12px;
-      color: var(--text-soft);
-    }
-
-    .footer-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-	    .footer-links { display: flex; gap: 24px; } /* Aumentando o espaçamento entre os links */
-	
-	    .footer-links a {
-	      text-decoration: none;
-	      display: flex;
-	      flex-direction: column;
-	      align-items: center;
-	      gap: 4px;
-	      padding: 0 4px;
-	      position: relative;
-	      font-size: 13px; /* Fonte um pouco maior para os links */
-	      color: var(--text-main); /* Cor de texto principal */
-	    }
-	
-	    .footer-links a::after {
-	      content: none; /* Removendo o sublinhado */
-	    }
-	
-	    .footer-links a:hover {
-	      color: var(--accent); /* Cor de destaque no hover */
-	    }
-	
-	    .footer-links a:hover img {
-	      opacity: 1;
-	    }
-	
-	    .footer-links a img {
-	      width: 24px;
-	      height: 24px;
-	      opacity: 0.85; /* Mais visível */
-	      transition: opacity .18s ease-out;
-	    }
-
-    /* Galeria com carrossel + vídeos */
-    .gallery-wrapper {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
-      gap: 24px;
-      align-items: center;
-    }
-
-	    .gallery-carousel {
-	      border-radius: 18px;
-	      overflow: hidden;
-	      background: #e5e7eb;
-	      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12); /* Sombra mais pronunciada e elegante */
-	      position: relative;
-	    }
-
-.gallery-carousel img {
-	      width: 100%;
-	      height: auto; /* Altura automática para não cortar */
-	      display: none;
-	      object-fit: contain; /* Garante que a imagem seja exibida por inteiro */
-	    }
-
-    .gallery-carousel img.active {
-      display: block;
-    }
-
+    .gallery-carousel img.active { display: block; /* Mostra só a ativa */ }
+    
     .gallery-dots {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 6px;
+      position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px;
     }
-
     .gallery-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: rgba(15,23,42,0.25);
-      border: 1px solid rgba(248,250,252,0.7);
+      width: 8px; height: 8px; background: rgba(255,255,255,0.5); border-radius: 50%; cursor: pointer;
     }
+    .gallery-dot.active { background: #fff; transform: scale(1.3); }
 
-    .gallery-dot.active {
-      background: #f9fafb;
+    /* MODAL TABELA MEDIDAS */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5); z-index: 200;
+      display: none; justify-content: center; align-items: center;
     }
-
-    .gallery-videos {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+    .modal-overlay.active { display: flex; }
+    .modal-content {
+      background: #fff; padding: 25px; border-radius: 15px; max-width: 90%; width: 400px; position: relative;
     }
+    .modal-close { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; }
+    .size-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 14px; }
+    .size-table th, .size-table td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+    .size-table th { background: #f9f9f9; }
 
-    .gallery-videos video {
-      width: 100%;
-      max-width: 260px;
-      border-radius: 14px;
-      box-shadow: 0 10px 26px rgba(15,23,42,0.28);
-      border: 1px solid rgba(15,23,42,0.35);
-    }
+    /* FOOTER */
+    footer { padding: 30px 0; border-top: 1px solid #e5e7eb; font-size: 13px; color: #666; }
+    .footer-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
+    .footer-links a { display: inline-flex; align-items: center; gap: 5px; margin-left: 15px; }
+    .footer-links img { width: 18px; opacity: 0.7; }
 
-    .gallery-caption {
-      font-size: 13px;
-      color: var(--text-soft);
-      margin-top: 6px;
-    }
-
+    /* RESPONSIVIDADE */
     @media (max-width: 900px) {
-      nav { display: none; }
-
-      .hero-grid,
-      .about-grid,
-      .features-grid,
-      .cta-block,
-      .gallery-wrapper {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .hero { padding-top: 40px; }
-
-      .hero-media { order: -1; }
-
-      .hero-card {
-        max-width: 420px;
-        margin: 0 auto;
-      }
-
-      .gallery-videos {
-        flex-direction: row;
-        flex-wrap: wrap;
-      }
-
-      .gallery-videos video {
-        max-width: 180px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .hero { padding-bottom: 52px; }
-
-      .cta-block { padding: 24px 18px 18px; }
-
-      .hero-badges { gap: 8px; }
-
-      .badge { font-size: 11px; }
+      .hero-grid, .gallery-wrapper { grid-template-columns: 1fr; }
+      .desktop-nav { display: none; }
+      .mobile-menu-btn { display: block; }
+      .hero { text-align: center; }
+      .hero-ctas, .hero-badges { justify-content: center; }
+      .footer-row { justify-content: center; flex-direction: column; text-align: center; }
+      .footer-links a { margin: 5px 10px; }
     }
   </style>
 </head>
 <body>
+
+  <div class="mobile-nav-overlay" id="mobileNav">
+    <div class="close-menu" onclick="toggleMenu()">×</div>
+    <a href="#sobre" onclick="toggleMenu()">Sobre</a>
+    <a href="#produto" onclick="toggleMenu()">Produto</a>
+    <a href="#galeria" onclick="toggleMenu()">Galeria</a>
+    <a href="https://shopee.com.br/shop/528135692" target="_blank"><strong>Ir para Shopee</strong></a>
+  </div>
+
   <div class="page">
     <header>
       <div class="container header-inner">
         <div class="logo-mark">
-          <img src="assets/logo_50one.jpg" alt="50OneWear logo" />
+          <img src="assets/logo_50one.jpg" alt="Logo">
           <div>
-            <div class="logo-word">50<span style="font-feature-settings:'sups' on;">one</span>Wear</div>
-            <div class="logo-sub">Premium Plain Tees</div>
+            <div class="logo-word">50oneWear</div>
+            <div class="logo-sub" style="font-size: 10px; letter-spacing: 2px;">PREMIUM TEES</div>
           </div>
         </div>
 
-        <nav>
+        <nav class="desktop-nav">
           <a href="#sobre">Sobre</a>
           <a href="#produto">Produto</a>
           <a href="#cores">Cores</a>
           <a href="#galeria">Galeria</a>
-          <a href="#revenda">Revenda</a>
           <a href="#contato">Contato</a>
         </nav>
 
-        <a href="https://shopee.com.br/shop/528135692" target="_blank" class="btn btn-primary">
-          Ver na Shopee
-        </a>
-      </div>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+
+        <a href="https://shopee.com.br/shop/528135692" target="_blank" class="btn btn-primary" style="display:none;">Shopee</a>
+        </div>
     </header>
 
     <main>
-      <!-- HERO -->
       <section class="hero">
         <div class="container hero-grid">
           <div>
-            <div class="eyebrow">Lançamento oficial • 50OneWear</div>
-            <h1 class="hero-title">Camisetas lisas premium para quem gosta de simplicidade que funciona.</h1>
-            <p class="hero-subtitle">
-              Modelagem moderna, caimento impecável e cores essenciais. Camisetas pensadas para o dia a dia, trabalho e noite – sem complicação.
-            </p>
+            <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #666; margin-bottom: 10px;">Lançamento Oficial</div>
+            <h1 class="hero-title">Camisetas lisas para quem valoriza o essencial.</h1>
+            <p class="hero-subtitle">Modelagem Slim Fit, Algodão com Elastano e durabilidade. A peça chave do seu guarda-roupa.</p>
 
-	            <div class="hero-badges">
-	              <div class="badge">Algodão + Elastano</div>
-	              <div class="badge">Toque macio & durável</div>
-	              <div class="badge">Gramatura 165g</div>
-	              <div class="badge">Elasticidade Premium</div>
-	              <div class="badge">Estilo atemporal</div>
-	            </div>
+            <div class="hero-badges">
+              <div class="badge">Algodão Premium</div>
+              <div class="badge">Elastano</div>
+              <div class="badge">Não desbota</div>
+            </div>
 
             <div class="hero-ctas">
-              <a href="https://shopee.com.br/shop/528135692" target="_blank" class="btn btn-primary">
-                Comprar agora na Shopee
-              </a>
-              <a href="https://wa.me/5511942916224" target="_blank" class="btn btn-ghost">
-                Falar com atendimento
-              </a>
+              <a href="https://shopee.com.br/shop/528135692" target="_blank" class="btn btn-primary">Comprar na Shopee</a>
+              <button onclick="openModal()" class="btn btn-ghost">📏 Tabela de Medidas</button>
             </div>
-
-            <div class="floating-card hero-feature-card">
-              <strong>Perfeita para todos os dias</strong>
-              <span>Conforto de camiseta básica com cara de peça premium.</span>
-            </div>
-
-            <p class="hero-note">
-              <strong>Pré-lançamento especial:</strong> quantidades limitadas no primeiro lote.
-            </p>
           </div>
 
           <div class="hero-media">
             <div class="hero-card">
-              <img src="assets/camisa_branca.jpg" alt="Camiseta lisa branca 50OneWear" />
-              <div class="hero-tag">
-                <div class="floating-dot"></div>
-                <span>50OneWear • Premium Plain Tees</span>
-              </div>
-            </div>
-
-
-          </div>
-        </div>
-      </section>
-
-      <!-- SOBRE A MARCA -->
-      <section id="sobre">
-        <div class="container about-grid">
-          <div class="about-text">
-            <div class="section-heading">
-              <h2 class="section-title">Simples, elegante e que funciona.</h2>
-              <p class="section-description">
-                50OneWear nasceu da ideia de ter camisetas lisas que realmente entregam qualidade: tecido premium, caimento bonito e cores que combinam com tudo.
-              </p>
-            </div>
-
-            <p>
-              Nada de estampa chamando mais atenção do que você. Nossa proposta é ser a base perfeita para qualquer look – da calça de alfaiataria ao jeans surrado.
-            </p>
-            <p>
-              A curadoria é focada em conforto, durabilidade e estética minimalista. Você compra uma camiseta para usar muitas vezes, não só até a primeira lavagem.
-            </p>
-
-            <ul class="about-list">
-              <li>✔ Foco em camisetas lisas premium</li>
-              <li>✔ Modelagem pensada para o corpo masculino brasileiro</li>
-              <li>✔ Produção em algodão penteado, toque macio</li>
-              <li>✔ Paleta de cores atemporais e fáceis de combinar</li>
-            </ul>
-          </div>
-
-          <div class="about-card">
-            <p><strong>Premissa da marca</strong></p>
-            <p>
-              "Nossa missão é simplificar o guarda-roupa masculino com peças essenciais de alta qualidade, que duram e combinam com tudo."
-            </p>
-            <div class="about-meta">
-              <span class="meta-pill">#Minimalismo</span>
-              <span class="meta-pill">#QualidadePremium</span>
-              <span class="meta-pill">#EstiloAtemporal</span>
+              <img src="assets/camisa_branca.jpg" alt="Camiseta Branca">
             </div>
           </div>
         </div>
       </section>
 
-      <!-- PRODUTO -->
-      <section id="produto">
-        <div class="container">
-          <div class="section-heading">
-            <h2 class="section-title">O que faz a 50OneWear ser premium?</h2>
-            <p class="section-description">
-              A diferença está nos detalhes. Do tecido à modelagem, tudo foi pensado para entregar o máximo de conforto e durabilidade.
-            </p>
-          </div>
-
-          <div class="features-grid">
-            <div class="feature-cards">
-              <div class="feature-card">
-                <h3>Tecido de Alta Performance</h3>
-                <p>96% Algodão Penteado + 4% Elastano. O toque macio do algodão com a elasticidade e caimento perfeito do elastano.</p>
-              </div>
-              <div class="feature-card">
-                <h3>Modelagem Slim Fit</h3>
-                <p>Corte que valoriza o corpo sem apertar. Pensada para o biotipo masculino, com ombros e mangas na medida certa.</p>
-              </div>
-              <div class="feature-card">
-                <h3>Gola Reforçada</h3>
-                <p>Costura de ombro a ombro e gola canelada com elastano, garantindo que ela não laceie ou enrole com o tempo.</p>
-              </div>
-              <div class="feature-card">
-                <h3>Durabilidade Superior</h3>
-                <p>Fio 30.1 Penteado, que passa por um processo de limpeza que remove as fibras mais curtas, tornando o tecido mais resistente e menos propenso a bolinhas.</p>
-              </div>
-            </div>
-
-            <div class="specs">
-              <div class="specs-row">
-                <span class="specs-label">Composição</span>
-                <span class="specs-value">96% Algodão Penteado / 4% Elastano</span>
-              </div>
-              <div class="specs-row">
-                <span class="specs-label">Gramatura</span>
-                <span class="specs-value">165 g/m²</span>
-              </div>
-              <div class="specs-row">
-                <span class="specs-label">Fio</span>
-                <span class="specs-value">30.1 Penteado</span>
-              </div>
-              <div class="specs-row">
-                <span class="specs-label">Modelagem</span>
-                <span class="specs-value">Slim Fit</span>
-              </div>
-              <div class="specs-row">
-                <span class="specs-label">Cores</span>
-                <span class="specs-value">5 Cores Essenciais</span>
-              </div>
-              <div class="specs-row">
-                <span class="specs-label">Tamanhos</span>
-                <span class="specs-value">P, M, G, GG</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CORES ESSENCIAIS -->
       <section id="cores">
         <div class="container">
-          <div class="section-heading">
-            <h2 class="section-title">Cores que resolvem o guarda-roupa.</h2>
-            <p class="section-description">
-              Em vez de dezenas de opções confusas, escolhemos uma paleta enxuta que combina entre si e com o que você já tem.
-            </p>
-          </div>
-
+          <h2 class="section-title">Cores Essenciais</h2>
           <div class="colors-grid">
-            <div class="color-card">
-              <div class="swatch white"></div>
-              <div class="color-name">Branco clássico</div>
-              <div class="color-note">A base de qualquer guarda-roupa. Vai do jeans ao blazer.</div>
-            </div>
-              <div class="color-card">
-              <div class="swatch navy"></div>
-              <div class="color-name">Azul marinho</div>
-              <div class="color-note">Clássico, elegante e versátil. Combina com tudo.</div>
-            </div>
-            <div class="color-card">
-              <div class="swatch black"></div>
-              <div class="color-name">Preto profundo</div>
-              <div class="color-note">Versátil, elegante e sempre seguro. Perfeito para noite.</div>
-            </div>
-            <div class="color-card">
-              <div class="swatch grey"></div>
-              <div class="color-name">Cinza chumbo</div>
-              <div class="color-note">Moderno e urbano. Fica bem com praticamente qualquer cor.</div>
-            </div>
-            <div class="color-card">
-              <div class="swatch green"></div>
-              <div class="color-name">Verde musgo</div>
-              <div class="color-note">Um toque de cor sóbrio, ideal para looks minimalistas.</div>
-            </div>
+            <div class="color-card"><div class="swatch white"></div><strong>Branco</strong></div>
+            <div class="color-card"><div class="swatch black"></div><strong>Preto</strong></div>
+            <div class="color-card"><div class="swatch navy"></div><strong>Azul Marinho</strong></div>
+            <div class="color-card"><div class="swatch grey"></div><strong>Cinza Chumbo</strong></div>
+            <div class="color-card"><div class="swatch green"></div><strong>Verde Musgo</strong></div>
           </div>
         </div>
       </section>
 
-      <!-- GALERIA COM CARROSSEL + VÍDEOS -->
       <section id="galeria">
         <div class="container">
-          <div class="section-heading">
-            <h2 class="section-title">Veja as peças em movimento.</h2>
-            <p class="section-description">
-              Uma galeria rápida com nossas cores principais: branco, preto, azul marinho, verde musgo e cinza – e vídeos curtos mostrando o caimento real.
-            </p>
-          </div>
-
+          <h2 class="section-title">Galeria</h2>
           <div class="gallery-wrapper">
             <div class="gallery-carousel">
-<img src="assets/camisa_azul.jpg" class="active" alt="Camiseta azul 50OneWear" />
-              <img src="assets/camisa_cinza.jpg" alt="Camiseta cinza 50OneWear" />
-              <img src="assets/camisa_preto.jpg" alt="Camiseta preta 50OneWear" />
-              <img src="assets/camisa_verde_azul.jpg" alt="Camiseta verde e azul 50OneWear" />
-              <img src="assets/camiseta_branca.jpg" alt="Camiseta branca 50OneWear" />
-              <img src="assets/camiseta_verde.jpg" alt="Camiseta verde 50OneWear" />
-              <img src="assets/camiseta_cinza_escuro.jpg" alt="Camiseta cinza escuro 50OneWear" />
-
+              <img src="assets/camisa_azul.jpg" class="active">
+              <img src="assets/camisa_cinza.jpg">
+              <img src="assets/camisa_preto.jpg">
+              <img src="assets/camiseta_branca.jpg">
+              
               <div class="gallery-dots">
-                <div class="gallery-dot active"></div>
-                <div class="gallery-dot"></div>
-                <div class="gallery-dot"></div>
-                <div class="gallery-dot"></div>
-                <div class="gallery-dot"></div>
-                <div class="gallery-dot"></div>
-                <div class="gallery-dot"></div>
+                <div class="gallery-dot active" onclick="setSlide(0)"></div>
+                <div class="gallery-dot" onclick="setSlide(1)"></div>
+                <div class="gallery-dot" onclick="setSlide(2)"></div>
+                <div class="gallery-dot" onclick="setSlide(3)"></div>
               </div>
             </div>
-
-            <div class="gallery-videos">
-              <div>
-                <video src="assets/video1.mp4" autoplay loop muted playsinline></video>
-                <div class="gallery-caption">Detalhe do caimento e movimento do tecido.</div>
-              </div>
-              <div>
-                <video src="assets/video2.mp4" autoplay loop muted playsinline></video>
-                <div class="gallery-caption">Visão geral das camisetas em diferentes corpos.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PARA QUEM É -->
-      <section>
-        <div class="container">
-          <div class="section-heading">
-            <h2 class="section-title">Para quem é a 50OneWear?</h2>
-            <p class="section-description">
-              Se você gosta de peças práticas, confortáveis e com cara de “roupa boa”, provavelmente vai se identificar.
-            </p>
-          </div>
-
-          <div class="pill-row">
-            <div class="pill">Homens que querem se vestir bem sem gastar tempo pensando em look</div>
-            <div class="pill">Quem prefere poucas peças boas a um armário cheio e descartável</div>
-            <div class="pill">Trabalho, faculdade, rolê e viagem – uma camiseta que acompanha tudo</div>
-            <div class="pill">Quem gosta de estética clean, minimalista e atemporal</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA REVENDA -->
-      <section id="revenda">
-        <div class="container">
-          <div class="cta-block">
-            <div>
-              <h2>Quer revender 50OneWear na sua região?</h2>
-              <p>
-                Temos condições especiais para revendedores e lojistas que buscam camisetas lisas premium com ótima saída e excelente margem.
-              </p>
-              <div class="hero-ctas" style="margin-bottom:12px;">
-                <a href="https://wa.me/5511942916224" target="_blank" class="btn btn-primary">
-                  Falar sobre atacado
-                </a>
-                <a href="https://shopee.com.br/shop/528135692" target="_blank" class="btn btn-ghost" style="border-color:rgba(148,163,184,0.8 );color:#e5e7eb;">
-                  Ver modelos e cores
-                </a>
-              </div>
-              <div class="cta-badges">
-                <span class="cta-pill">Baixo investimento inicial</span>
-                <span class="cta-pill">Peças com giro rápido</span>
-                <span class="cta-pill">Reposição facilitada</span>
-              </div>
-            </div>
-            <div class="cta-side">
-              <strong>Atacado sob consulta.</strong>  
-
-              Indicado para lojistas de moda masculina, empreendedores digitais e revenda local.
-                
-  
-
-              Atendimento direto via WhatsApp para fechar pedido, tirar dúvidas e montar grade de tamanhos.
+            
+            <div class="gallery-info">
+              <p>Confira o caimento real das peças.</p>
+              <video src="assets/video1.mp4" autoplay loop muted playsinline style="width:100%; border-radius:12px; margin-top:10px;"></video>
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <!-- FOOTER -->
     <footer id="contato">
-	      <div class="container footer-row">
-	        <div>© <span id="year"></span> 50OneWear. Todos os direitos reservados.</div>
-	        <div class="footer-links">
-	          <a href="https://www.instagram.com/50onewear/" target="_blank">
-	            Instagram
-	            <img src="assets/instagram_icon.png" alt="Instagram" />
-	          </a>
-	          <a href="https://shopee.com.br/shop/528135692" target="_blank">
-	            Shopee
-	            <img src="assets/shopee_icon.png" alt="Shopee" />
-	          </a>
-	          <a href="https://wa.me/5511942916224" target="_blank">
-	            WhatsApp
-	            <img src="assets/whatsapp_icon.png" alt="WhatsApp" />
-	          </a>
-	        </div>
-	      </div>
+      <div class="container footer-row">
+        <div>© 2025 50OneWear.</div>
+        <div class="footer-links">
+          <a href="https://wa.me/5511942916224" target="_blank">WhatsApp</a>
+          <a href="https://instagram.com/50onewear" target="_blank">Instagram</a>
+        </div>
+      </div>
     </footer>
   </div>
 
-  <script>
-    document.getElementById('year' ).textContent = new Date().getFullYear();
+  <div class="modal-overlay" id="sizeModal" onclick="closeModal(event)">
+    <div class="modal-content">
+      <div class="modal-close" onclick="closeModal()">×</div>
+      <h3>Guia de Medidas</h3>
+      <table class="size-table">
+        <tr><th>Tam</th><th>Altura</th><th>Largura</th></tr>
+        <tr><td>P</td><td>68 cm</td><td>50 cm</td></tr>
+        <tr><td>M</td><td>70 cm</td><td>52 cm</td></tr>
+        <tr><td>G</td><td>72 cm</td><td>54 cm</td></tr>
+        <tr><td>GG</td><td>74 cm</td><td>56 cm</td></tr>
+      </table>
+      <div style="margin-top:15px; font-size:12px; color:#777; text-align:center;">Margem de tolerância: +/- 2cm</div>
+    </div>
+  </div>
 
-    // Carrossel da galeria
-    const slides = [];
-    const dots = [];
-    window.addEventListener('load', () => {
-      document.querySelectorAll('.gallery-carousel img').forEach(img => slides.push(img));
-      document.querySelectorAll('.gallery-dot').forEach(dot => dots.push(dot));
-      let index = 0;
-      function show(i) {
-        slides.forEach((img, idx) => {
-          img.classList.toggle('active', idx === i);
-        });
-        dots.forEach((dot, idx) => {
-          dot.classList.toggle('active', idx === i);
-        });
+  <script>
+    // --- LÓGICA BLINDADA DO SITE ---
+    
+    // 1. Menu Mobile
+    function toggleMenu() {
+      const menu = document.getElementById('mobileNav');
+      if(menu) menu.classList.toggle('open');
+    }
+
+    // 2. Modal de Medidas
+    function openModal() {
+      document.getElementById('sizeModal').classList.add('active');
+    }
+    function closeModal(e) {
+      // Se clicou no X ou fora da caixa (no overlay)
+      if (!e || e.target.id === 'sizeModal' || e.target.classList.contains('modal-close')) {
+        document.getElementById('sizeModal').classList.remove('active');
       }
-      function next() {
-        index = (index + 1) % slides.length;
-        show(index);
+    }
+
+    // 3. Carrossel Seguro (Não trava se faltar imagem)
+    document.addEventListener('DOMContentLoaded', function() {
+      const slides = document.querySelectorAll('.gallery-carousel img');
+      const dots = document.querySelectorAll('.gallery-dot');
+      
+      // Se não tiver imagens, para aqui e não faz nada (não trava o site)
+      if (slides.length === 0) return;
+
+      let currentIndex = 0;
+      let interval;
+
+      window.setSlide = function(index) {
+        // Reseta intervalo ao clicar
+        clearInterval(interval);
+        showSlide(index);
+        startAutoPlay();
       }
-      show(0);
-      setInterval(next, 2500);
+
+      function showSlide(index) {
+        // Garante loop
+        if (index >= slides.length) index = 0;
+        if (index < 0) index = slides.length - 1;
+        currentIndex = index;
+
+        // Remove classe ativa de todos
+        slides.forEach(img => img.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+
+        // Adiciona classe ativa (com verificação de segurança)
+        if(slides[currentIndex]) slides[currentIndex].classList.add('active');
+        if(dots[currentIndex]) dots[currentIndex].classList.add('active');
+      }
+
+      function startAutoPlay() {
+        interval = setInterval(() => {
+          showSlide(currentIndex + 1);
+        }, 3000);
+      }
+
+      // Inicia
+      startAutoPlay();
     });
   </script>
 </body>
