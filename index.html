@@ -218,6 +218,7 @@
     .gallery-side{ display:flex; flex-direction: column; gap: 10px; }
     .gallery-caption{ margin: 0; color:#666; font-size: 12px; }
     .gallery-media img{ width:100%; height:100%; object-fit: cover; display:block; }
+    .gallery-media video{ width:100%; height:100%; object-fit: cover; display:block; }
 
     /* Contact section */
     .contact{ padding: 26px 0 10px; }
@@ -269,7 +270,15 @@
     <a href="https://shopee.com.br/shop/528135692" target="_blank"><strong>Comprar na Shopee</strong></a>
   </div>
 
-</div>
+<header>
+      <div class="container header-inner">
+        <div class="logo-mark">
+          <img src="assets/logo_50one.jpg" alt="Logo 50oneWear">
+          <div>
+            <div class="logo-word">50oneWear</div>
+            <div class="logo-sub">PREMIUM TEES</div>
+          </div>
+        </div>
 
         <nav class="desktop-nav">
           <a href="#inicio">Início</a>
@@ -405,14 +414,18 @@
             <div class="gallery-side">
               <p class="gallery-caption">Confira o caimento real das peças.</p>
               <div class="gallery-media gallery-card">
-                <img src="assets/camisa_verde_azul.jpg" alt="Cores essenciais">
+                <video autoplay muted loop playsinline preload="metadata" aria-label="Vídeo 1">
+                  <source src="assets/video1.mp4" type="video/mp4">
+                </video>
               </div>
             </div>
 
             <div class="gallery-side">
               <p class="gallery-caption">Detalhes e acabamento.</p>
               <div class="gallery-media gallery-card">
-                <img src="assets/camiseta_verde.jpg" alt="Detalhes da camiseta">
+                <video autoplay muted loop playsinline preload="metadata" aria-label="Vídeo 2">
+                  <source src="assets/video2.mp4" type="video/mp4">
+                </video>
               </div>
             </div>
           </div>
