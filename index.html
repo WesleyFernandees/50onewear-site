@@ -6,14 +6,11 @@
   
   <title>50oneWear – Premium Plain Tees</title>
   <meta name="description" content="Camisetas lisas premium (Slim Fit). Algodão com elastano. Simplicidade que funciona.">
-  <meta property="og:title" content="50OneWear – Premium Plain Tees">
-  <meta property="og:image" content="assets/camisa_branca.jpg">
-
+  
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-
-    /* VARIÁVEIS DE COR */
+    /* VARIÁVEIS DE COR E CONFIGURAÇÕES GERAIS */
     :root {
       --bg: #f5f2e9; 
       --text-main: #171717;
@@ -23,9 +20,8 @@
       --radius-xl: 18px;
     }
 
-    /* RESETS BÁSICOS */
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; } /* Scroll suave ao clicar no menu */
+    html { scroll-behavior: smooth; }
     
     body {
       font-family: 'Inter', sans-serif;
@@ -37,49 +33,28 @@
     img { max-width: 100%; display: block; }
     a { text-decoration: none; color: inherit; }
     .page { min-height: 100vh; display: flex; flex-direction: column; }
+    .container { width: 100%; max-width: 1120px; padding: 0 20px; margin: 0 auto; }
 
-    .container {
-      width: 100%; max-width: 1120px; padding: 0 20px; margin: 0 auto;
-    }
-
-    /* HEADER & MENU */
+    /* HEADER */
     header {
       position: sticky; top: 0; z-index: 50;
       backdrop-filter: blur(18px);
       background: rgba(245, 242, 233, 0.9);
       border-bottom: 1px solid rgba(0,0,0,0.05);
     }
-    .header-inner {
-      display: flex; align-items: center; justify-content: space-between; padding: 14px 0;
-    }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
     .logo-mark { display: flex; align-items: center; gap: 10px; }
     .logo-mark img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
     .logo-word { font-family: 'Playfair Display', serif; font-size: 24px; }
     
-    /* MENU DESKTOP */
     nav.desktop-nav { display: flex; gap: 20px; font-size: 14px; color: var(--text-soft); }
     nav.desktop-nav a:hover { color: var(--accent); text-decoration: underline; }
-
-    /* MENU MOBILE (Botão) */
-    .mobile-menu-btn {
-      display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-main);
-    }
-    
-    /* MENU MOBILE (Tela Cheia) */
-    .mobile-nav-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(255,255,255,0.98); z-index: 100;
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px;
-      font-size: 20px; opacity: 0; pointer-events: none; transition: opacity 0.3s;
-    }
-    .mobile-nav-overlay.open { opacity: 1; pointer-events: all; }
-    .close-menu { position: absolute; top: 20px; right: 20px; font-size: 30px; cursor: pointer; }
 
     /* BOTÕES */
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       padding: 10px 24px; border-radius: 999px; font-size: 14px; cursor: pointer;
-      transition: all .2s; font-weight: 500;
+      transition: all .2s; font-weight: 500; border: none;
     }
     .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
@@ -102,212 +77,109 @@
     .badge { padding: 6px 12px; border-radius: 20px; background: rgba(255,255,255,0.6); border: 1px solid rgba(0,0,0,0.1); }
 
     .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+    .hero-media { display: flex; justify-content: flex-end; }
+    .hero-card { width: 100%; max-width: 520px; aspect-ratio: 4 / 5; border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    .hero-card img { width: 100%; height: 100%; object-fit: cover; }
 
-    .hero-card {
-      border-radius: var(--radius-xl); overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    /* FAIXA ESCURA (CTA BAND) */
+    .cta-band { padding-top: 10px; padding-bottom: 50px; }
+    .cta-card {
+      background: linear-gradient(180deg, #101827 0%, #0b1220 100%);
+      color: #fff; border-radius: 26px; padding: 34px;
+      box-shadow: 0 26px 60px rgba(0,0,0,0.25);
+      display: grid; grid-template-columns: 1.3fr 1fr; gap: 26px;
+      overflow: hidden; position: relative;
+    }
+    .cta-title { font-family: 'Playfair Display', serif; font-size: 34px; line-height: 1.1; margin-bottom: 10px; }
+    .cta-text { color: rgba(255,255,255,0.78); line-height: 1.6; margin-bottom: 18px; max-width: 62ch; }
+    
+    .btn-dark-ghost { background: transparent; border: 1px solid rgba(255,255,255,0.35); color: #fff; }
+    .btn-dark-ghost:hover { background: rgba(255,255,255,0.08); transform: translateY(-2px); }
+    
+    .cta-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .cta-chips .chip {
+      font-size: 12px; padding: 7px 12px; border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.85);
     }
 
-    /* SEÇÕES E CARDS */
-    .section-title { font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 10px; }
-    .section-description { margin-bottom: 30px; color: var(--text-soft); max-width: 600px; }
+    .cta-side {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px; padding: 18px; height: fit-content; align-self: center;
+    }
+    .cta-list { list-style: none; display: grid; gap: 10px; margin-bottom: 12px; }
+    .cta-list li { position: relative; padding-left: 18px; color: rgba(255,255,255,0.80); font-size: 13px; }
+    .cta-list li::before { content: "•"; position: absolute; left: 0; color: rgba(255,255,255,0.65); }
 
-    /* GRID DE CORES */
-    .colors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
-    .color-card { background: #fff; padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-    .swatch { width: 32px; height: 32px; border-radius: 50%; margin-bottom: 10px; border: 1px solid #eee; }
+    /* MEDIDAS */
+    .measure-section { padding: 40px 0 10px; }
+    .measure-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 18px; align-items: start; }
+    .measure-card {
+      background: #fff; border-radius: var(--radius-xl); padding: 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+    }
+    .size-table { width: 100%; border-collapse: collapse; font-size: 14px; text-align: center; }
+    .size-table th, .size-table td { border: 1px solid #ddd; padding: 8px; }
+    .size-table th { background: #f9f9f9; }
+
+    /* CORES */
+    .colors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-top: 20px; }
+    .color-card { background: #fff; padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center; }
+    .swatch { width: 32px; height: 32px; border-radius: 50%; margin: 0 auto 10px; border: 1px solid #eee; }
     .swatch.black { background: #000; } .swatch.white { background: #fff; } 
     .swatch.navy { background: #1a237e; } .swatch.grey { background: #757575; } .swatch.green { background: #2e7d32; }
 
-    
     /* GALERIA */
-    .gallery-wrapper{
-      display:grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 20px;
-      align-items:start;
-    }
-
-    .gallery-note{
-      margin: -4px 0 14px;
-      color: var(--text-soft);
-      font-size: 14px;
-    }
-
-    /* Carrossel (esquerda) */
-    .gallery-carousel{
-      border-radius: 18px;
-      overflow:hidden;
-      position:relative;
-      background:#ddd;
-      /* Mantém a altura consistente e evita “gigantismo” */
-      height: clamp(260px, 45vh, 420px);
-    }
-    .gallery-carousel img{
-      width:100%;
-      height:100%;
-      display:none;
-      object-fit:cover;
-    }
-    .gallery-carousel img.active{ display:block; }
-
-    .gallery-dots{
-      position:absolute;
-      bottom: 14px;
-      left: 50%;
-      transform: translateX(-50%);
-      display:flex;
-      gap: 8px;
-    }
-    .gallery-dot{
-      width: 8px;
-      height: 8px;
-      background: rgba(255,255,255,.55);
-      border-radius: 50%;
-      cursor:pointer;
-      transition: transform .15s ease, background .15s ease;
-    }
-    .gallery-dot.active{ background:#fff; transform: scale(1.25); }
-
-    /* Coluna direita (vídeos + kit) */
-    .gallery-side{
-      display:grid;
-      grid-template-rows: repeat(3, 1fr);
-      gap: 14px;
-      height: clamp(260px, 45vh, 420px); /* igual ao carrossel */
-      min-height: 0;
-    }
-    .gallery-tile{
-      border-radius: 18px;
-      overflow:hidden;
-      background:#111;
-      min-height: 0;
-    }
-    .gallery-tile video,
-    .gallery-tile img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
-
-    /* Card de kits (ocupa 1 tile) */
-    .gallery-kit{
-      background:#ffffff;
-      border: 1px solid #e7e1d7;
-      padding: 16px 16px 14px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      color: var(--text-main);
-    }
-    .gallery-kit h3{
-      margin:0 0 8px;
-      font-size: 16px;
-      letter-spacing:.2px;
-    }
-    .gallery-kit p{
-      margin:0 0 10px;
-      color: var(--text-soft);
-      font-size: 13px;
-      line-height: 1.35;
-    }
-    .kit-list{
-      margin: 0 0 12px;
-      padding-left: 16px;
-      color: var(--text-main);
-      font-size: 13px;
-      line-height: 1.35;
-    }
-    .kit-actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .kit-actions .btn{
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-    }
-
-    /* Responsivo */
-    @media (max-width: 860px){
-      .gallery-wrapper{ grid-template-columns: 1fr; }
-      .gallery-carousel{ height: 320px; }
-      .gallery-side{ height: auto; grid-template-rows: none; grid-template-columns: 1fr; }
-      .gallery-tile{ height: 220px; }
-      .gallery-kit{ height: auto; }
-    }
-/* MODAL TABELA MEDIDAS */
-    .modal-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5); z-index: 200;
-      display: none; justify-content: center; align-items: center;
-    }
-    .modal-overlay.active { display: flex; }
-    .modal-content {
-      background: #fff; padding: 25px; border-radius: 15px; max-width: 90%; width: 400px; position: relative;
-    }
-    .modal-close { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; }
-    .size-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 14px; }
-    .size-table th, .size-table td { border: 1px solid #ddd; padding: 8px; text-align: center; }
-    .size-table th { background: #f9f9f9; }
-
-    /* FOOTER */
-    footer { padding: 30px 0; border-top: 1px solid #e5e7eb; font-size: 13px; color: #666; }
-    .footer-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
-    .footer-links a { display: inline-flex; align-items: center; gap: 5px; margin-left: 15px; }
-    .footer-links img { width: 18px; opacity: 0.7; }
-
-    /* RESPONSIVIDADE */
+    .gallery-wrapper { display: grid; gap: 16px; align-items: start; }
+    @media (min-width: 980px){ .gallery-wrapper { grid-template-columns: repeat(3, 1fr); } }
+    .gallery-tile { border-radius: 18px; overflow: hidden; background: #ddd; position: relative; aspect-ratio: 4/3; }
+    .gallery-tile img, .gallery-tile video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    
+    /* FOOTER & MOBILE */
+    footer { padding: 30px 0; border-top: 1px solid #e5e7eb; font-size: 13px; color: #666; text-align: center; }
+    
     @media (max-width: 900px) {
-      .hero-grid, .gallery-wrapper { grid-template-columns: 1fr; }
-      .desktop-nav { display: none; }
-      .mobile-menu-btn { display: block; }
+      .hero-grid, .cta-card, .measure-grid { grid-template-columns: 1fr; }
+      .desktop-nav, .header-actions { display: none; }
       .hero { text-align: center; }
-      .hero-ctas, .hero-badges { justify-content: center; }
-      .footer-row { justify-content: center; flex-direction: column; text-align: center; }
-      .footer-links a { margin: 5px 10px; }
+      .hero-ctas, .hero-badges, .footer-row { justify-content: center; }
+      .cta-card { text-align: center; padding: 22px; }
+      .cta-side { text-align: left; }
     }
-  
-</style>
+    
+    .icon { width: 18px; height: 18px; }
+  </style>
 </head>
 <body>
 
-  <div class="mobile-nav-overlay" id="mobileNav">
-    <div class="close-menu" onclick="toggleMenu()">×</div>
-    <a href="#sobre" onclick="toggleMenu()">Sobre</a>
-    <a href="#produto" onclick="toggleMenu()">Produto</a>
-    <a href="#galeria" onclick="toggleMenu()">Galeria</a>
-    <a href="https://shopee.com.br/shop/528135692" target="_blank"><strong>Ir para Shopee</strong></a>
-  </div>
-
-  <div class="page">
+<div class="page">
     <header>
       <div class="container header-inner">
         <div class="logo-mark">
           <img src="assets/logo_50one.jpg" alt="Logo">
           <div>
             <div class="logo-word">50oneWear</div>
-            <div class="logo-sub" style="font-size: 10px; letter-spacing: 2px;">PREMIUM TEES</div>
+            <div style="font-size: 10px; letter-spacing: 2px;">PREMIUM TEES</div>
           </div>
         </div>
 
         <nav class="desktop-nav">
-          <a href="#sobre">Sobre</a>
-          <a href="#produto">Produto</a>
+          <a href="#top">Início</a>
           <a href="#cores">Cores</a>
           <a href="#galeria">Galeria</a>
+          <a href="#medidas">Medidas</a>
           <a href="#contato">Contato</a>
         </nav>
 
-        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
-
-        <a href="https://shopee.com.br/shop/528135692" target="_blank" class="btn btn-primary" style="display:none;">Shopee</a>
+        <div class="header-actions" style="display: flex; gap: 10px;">
+          <a href="https://shopee.com.br/shop/528135692" target="_blank" class="btn btn-primary btn-small">
+            Comprar na Shopee
+          </a>
         </div>
+      </div>
     </header>
 
-    <main>
+    <main id="top">
       <section class="hero">
         <div class="container hero-grid">
           <div>
@@ -323,21 +195,74 @@
 
             <div class="hero-ctas">
               <a href="https://shopee.com.br/shop/528135692" target="_blank" class="btn btn-primary">Comprar na Shopee</a>
-              <button onclick="openModal()" class="btn btn-ghost">📏 Tabela de Medidas</button>
+              <a href="#medidas" class="btn btn-ghost">Tabela de Medidas</a>
             </div>
           </div>
 
           <div class="hero-media">
             <div class="hero-card">
-              <img src="assets/camisa_branca.jpg" alt="Camiseta Branca">
+              <img src="assets/infuencer.png" alt="Modelo usando camiseta">
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band">
+        <div class="container">
+          <div class="cta-card">
+            <div>
+              <h2 class="cta-title">Seu básico premium, sem complicação.</h2>
+              <p class="cta-text">Escolha sua cor, confira a tabela de medidas e compre com segurança pela Shopee. Se quiser, a gente te ajuda no WhatsApp.</p>
+
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <a href="https://shopee.com.br/shop/528135692" target="_blank" class="btn btn-primary">Comprar na Shopee</a>
+                <a href="https://wa.me/5511942916224" target="_blank" class="btn btn-dark-ghost">Falar no WhatsApp</a>
+                <a href="#cores" class="btn btn-dark-ghost">Ver cores</a>
+              </div>
+
+              <div class="cta-chips">
+                <span class="chip">Pagamento seguro</span>
+                <span class="chip">Envio para todo Brasil</span>
+                <span class="chip">Suporte de tamanho</span>
+              </div>
+            </div>
+
+            <div class="cta-side">
+              <div style="font-weight: 600; margin-bottom: 10px;">Como funciona</div>
+              <ul class="cta-list">
+                <li>Selecione sua cor e tamanho</li>
+                <li>Finalize o pedido na Shopee</li>
+                <li>Receba em casa e aproveite o caimento</li>
+              </ul>
+              <div style="font-size: 12px; color: rgba(255,255,255,0.72);">Dica: use a Tabela de Medidas antes de comprar.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="medidas" class="measure-section">
+        <div class="container measure-grid">
+          <div>
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 10px;">Tabela de Medidas</h2>
+            <p style="color: var(--text-soft); margin-bottom: 20px;">Medidas aproximadas da peça (tolerância ± 2 cm).</p>
+            <a href="https://wa.me/5511942916224" class="btn btn-ghost">Dúvidas no WhatsApp</a>
+          </div>
+
+          <div class="measure-card">
+            <table class="size-table">
+              <tr><th>Tam</th><th>Altura</th><th>Largura</th></tr>
+              <tr><td>P</td><td>68 cm</td><td>50 cm</td></tr>
+              <tr><td>M</td><td>70 cm</td><td>52 cm</td></tr>
+              <tr><td>G</td><td>72 cm</td><td>54 cm</td></tr>
+              <tr><td>GG</td><td>74 cm</td><td>56 cm</td></tr>
+            </table>
           </div>
         </div>
       </section>
 
       <section id="cores">
         <div class="container">
-          <h2 class="section-title">Cores Essenciais</h2>
+          <h2 class="section-title" style="font-family: 'Playfair Display', serif; font-size: 28px;">Cores Essenciais</h2>
           <div class="colors-grid">
             <div class="color-card"><div class="swatch white"></div><strong>Branco</strong></div>
             <div class="color-card"><div class="swatch black"></div><strong>Preto</strong></div>
@@ -349,146 +274,24 @@
       </section>
 
       <section id="galeria">
-  <div class="container">
-    <h2 class="section-title">Galeria</h2>
-    <div class="gallery-note">Confira o caimento real das peças.</div>
-    <div class="gallery-wrapper">
-
-      <!-- Carrossel (fotos) -->
-      <div class="gallery-carousel" aria-label="Carrossel de fotos">
-        <img src="assets/camisa_azul.jpg" class="active" alt="Camiseta azul marinho">
-        <img src="assets/camisa_cinza.jpg" alt="Camiseta cinza chumbo">
-        <img src="assets/camisa_preto.jpg" alt="Camiseta preta">
-        <img src="assets/camiseta_branca.jpg" alt="Camiseta branca">
-
-        <div class="gallery-dots" aria-hidden="true">
-          <div class="gallery-dot active" onclick="setSlide(0)"></div>
-          <div class="gallery-dot" onclick="setSlide(1)"></div>
-          <div class="gallery-dot" onclick="setSlide(2)"></div>
-          <div class="gallery-dot" onclick="setSlide(3)"></div>
-        </div>
-      </div>
-
-      <!-- Coluna direita: vídeos + kits -->
-      <div class="gallery-side" aria-label="Vídeos e kits">
-        <div class="gallery-tile" aria-label="Vídeo 1">
-          <video src="assets/video1.mp4" autoplay loop muted playsinline preload="metadata"></video>
-        </div>
-
-        <div class="gallery-tile" aria-label="Vídeo 2">
-          <video src="assets/video2.mp4" autoplay loop muted playsinline preload="metadata"></video>
-        </div>
-
-        <div class="gallery-tile gallery-kit" aria-label="Kits 2 camisetas">
-          <div>
-            <h3>Kits (2 camisetas)</h3>
-            <p>Monte seu kit com duas cores e peça ajuda no tamanho. Ideal pra garantir o básico da semana.</p>
-            <ul class="kit-list">
-              <li>Preto + Branco</li>
-              <li>Azul Marinho + Cinza Chumbo</li>
-              <li>Verde Musgo + Branco</li>
-            </ul>
-          </div>
-          <div class="kit-actions">
-            <a class="btn btn-primary" href="https://shopee.com.br/shop/528135692" target="_blank" rel="noopener">Ver na Shopee</a>
-            <a class="btn btn-ghost" href="https://wa.me/5511942916224" target="_blank" rel="noopener">Montar no WhatsApp</a>
+        <div class="container">
+          <h2 class="section-title" style="font-family: 'Playfair Display', serif; font-size: 28px; margin: 40px 0 10px;">Galeria</h2>
+          <div class="gallery-wrapper">
+            <div class="gallery-tile"><img src="assets/camisa_preto.jpg" alt="Camiseta Preta"></div>
+            <div class="gallery-tile"><img src="assets/camisa_azul.jpg" alt="Camiseta Azul"></div>
+            <div class="gallery-tile"><img src="assets/camisa_cinza.jpg" alt="Camiseta Cinza"></div>
           </div>
         </div>
-      </div>
+      </section>
 
-    </div>
-  </div>
-</section>
     </main>
 
-    <footer id="contato">
-      <div class="container footer-row">
-        <div>© 2025 50OneWear.</div>
-        <div class="footer-links">
-          <a href="https://wa.me/5511942916224" target="_blank">WhatsApp</a>
-          <a href="https://instagram.com/50onewear" target="_blank">Instagram</a>
-        </div>
+    <footer>
+      <div class="container">
+        © 2025 50OneWear. Todos os direitos reservados.
       </div>
     </footer>
-  </div>
+</div>
 
-  <div class="modal-overlay" id="sizeModal" onclick="closeModal(event)">
-    <div class="modal-content">
-      <div class="modal-close" onclick="closeModal()">×</div>
-      <h3>Guia de Medidas</h3>
-      <table class="size-table">
-        <tr><th>Tam</th><th>Altura</th><th>Largura</th></tr>
-        <tr><td>P</td><td>68 cm</td><td>50 cm</td></tr>
-        <tr><td>M</td><td>70 cm</td><td>52 cm</td></tr>
-        <tr><td>G</td><td>72 cm</td><td>54 cm</td></tr>
-        <tr><td>GG</td><td>74 cm</td><td>56 cm</td></tr>
-      </table>
-      <div style="margin-top:15px; font-size:12px; color:#777; text-align:center;">Margem de tolerância: +/- 2cm</div>
-    </div>
-  </div>
-
-  <script>
-    // --- LÓGICA BLINDADA DO SITE ---
-    
-    // 1. Menu Mobile
-    function toggleMenu() {
-      const menu = document.getElementById('mobileNav');
-      if(menu) menu.classList.toggle('open');
-    }
-
-    // 2. Modal de Medidas
-    function openModal() {
-      document.getElementById('sizeModal').classList.add('active');
-    }
-    function closeModal(e) {
-      // Se clicou no X ou fora da caixa (no overlay)
-      if (!e || e.target.id === 'sizeModal' || e.target.classList.contains('modal-close')) {
-        document.getElementById('sizeModal').classList.remove('active');
-      }
-    }
-
-    // 3. Carrossel Seguro (Não trava se faltar imagem)
-    document.addEventListener('DOMContentLoaded', function() {
-      const slides = document.querySelectorAll('.gallery-carousel img');
-      const dots = document.querySelectorAll('.gallery-dot');
-      
-      // Se não tiver imagens, para aqui e não faz nada (não trava o site)
-      if (slides.length === 0) return;
-
-      let currentIndex = 0;
-      let interval;
-
-      window.setSlide = function(index) {
-        // Reseta intervalo ao clicar
-        clearInterval(interval);
-        showSlide(index);
-        startAutoPlay();
-      }
-
-      function showSlide(index) {
-        // Garante loop
-        if (index >= slides.length) index = 0;
-        if (index < 0) index = slides.length - 1;
-        currentIndex = index;
-
-        // Remove classe ativa de todos
-        slides.forEach(img => img.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-
-        // Adiciona classe ativa (com verificação de segurança)
-        if(slides[currentIndex]) slides[currentIndex].classList.add('active');
-        if(dots[currentIndex]) dots[currentIndex].classList.add('active');
-      }
-
-      function startAutoPlay() {
-        interval = setInterval(() => {
-          showSlide(currentIndex + 1);
-        }, 3000);
-      }
-
-      // Inicia
-      startAutoPlay();
-    });
-  </script>
 </body>
 </html>
