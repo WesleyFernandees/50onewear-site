@@ -159,8 +159,75 @@
     .footer-links a { display: inline-flex; align-items: center; gap: 5px; margin-left: 15px; }
     .footer-links img { width: 18px; opacity: 0.7; }
 
+/* FAIXA DE COMPRA / BENEFÍCIOS (SUBSTITUI ATACADO) */
+.cta-band { padding-top: 10px; padding-bottom: 50px; }
+.cta-card {
+  background: linear-gradient(180deg, #101827 0%, #0b1220 100%);
+  color: #fff;
+  border-radius: 26px;
+  padding: 34px;
+  box-shadow: 0 26px 60px rgba(0,0,0,0.25);
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 26px;
+  overflow: hidden;
+  position: relative;
+}
+.cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+.cta-text { color: rgba(255,255,255,0.78); line-height: 1.6; margin-bottom: 18px; max-width: 62ch; }
+.cta-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+.btn-dark-ghost { background: transparent; border: 1px solid rgba(255,255,255,0.35); color: #fff; }
+.btn-dark-ghost:hover { background: rgba(255,255,255,0.08); transform: translateY(-2px); }
+
+.cta-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.cta-chips .chip {
+  font-size: 12px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.85);
+}
+
+.cta-side {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 18px 18px 16px;
+  height: fit-content;
+  align-self: center;
+}
+.cta-side-title { font-weight: 600; margin-bottom: 10px; }
+.cta-list { list-style: none; display: grid; gap: 10px; margin-bottom: 12px; }
+.cta-list li {
+  position: relative;
+  padding-left: 18px;
+  color: rgba(255,255,255,0.80);
+  line-height: 1.4;
+  font-size: 13px;
+}
+.cta-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: rgba(255,255,255,0.65);
+}
+.cta-side-note { font-size: 12px; color: rgba(255,255,255,0.72); line-height: 1.5; }
+
+
     /* RESPONSIVIDADE */
     @media (max-width: 900px) {
+.cta-card { grid-template-columns: 1fr; padding: 22px; text-align: center; }
+.cta-text { margin-left: auto; margin-right: auto; }
+.cta-actions { justify-content: center; }
+.cta-chips { justify-content: center; }
+.cta-side { text-align: left; }
       .hero-grid, .gallery-wrapper { grid-template-columns: 1fr; }
       .desktop-nav { display: none; }
       .mobile-menu-btn { display: block; }
@@ -169,19 +236,90 @@
       .footer-row { justify-content: center; flex-direction: column; text-align: center; }
       .footer-links a { margin: 5px 10px; }
     }
-  </style>
+  
+
+    /* ICONS */
+    .icon { width: 18px; height: 18px; flex: 0 0 auto; }
+    .btn span { line-height: 1; }
+
+    /* HEADER ACTIONS */
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+    .btn-small { padding: 10px 16px; }
+    .header-social { display: flex; align-items: center; gap: 8px; }
+    .icon-btn {
+      width: 40px; height: 40px; border-radius: 999px;
+      display: inline-flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(0,0,0,0.10);
+      background: rgba(255,255,255,0.55);
+      transition: transform .15s, background .15s;
+    }
+    .icon-btn:hover { transform: translateY(-1px); background: rgba(255,255,255,0.85); }
+
+    /* MEASURES */
+    .measure-section { padding: 40px 0 10px; }
+    .measure-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 18px; align-items: start; }
+    .measure-card {
+      background: #fff; border-radius: var(--radius-xl);
+      border: 1px solid rgba(0,0,0,0.06);
+      padding: 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+    }
+    .measure-note { margin-top: 10px; font-size: 12px; color: #666; text-align: center; }
+    .measure-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+
+    /* SECTION TYPO */
+    .section-title { font-size: 28px; letter-spacing: -0.4px; margin-bottom: 10px; }
+    .section-subtitle { color: var(--text-soft); line-height: 1.6; max-width: 62ch; }
+
+    /* CONTACT */
+    .contact-section { padding: 40px 0 30px; }
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 16px; }
+    .contact-card {
+      display: flex; align-items: center; gap: 12px;
+      padding: 16px; border-radius: var(--radius-xl);
+      background: #fff; border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+      text-decoration: none; color: var(--text-main);
+      transition: transform .15s, box-shadow .15s;
+    }
+    .contact-card:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(0,0,0,0.10); }
+    .contact-ic {
+      width: 44px; height: 44px; border-radius: 999px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: rgba(16,24,39,0.06);
+      border: 1px solid rgba(16,24,39,0.10);
+    }
+    .contact-title { font-weight: 700; }
+    .contact-text { font-size: 13px; color: var(--text-soft); margin-top: 2px; }
+
+    /* FOOTER LINKS WITH ICONS */
+    .footer-links a { display: inline-flex; align-items: center; gap: 8px; }
+
+    @media (max-width: 860px) {
+      .header-actions { display: none; }
+      .measure-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .section-title { font-size: 24px; }
+    }
+
+</style>
 </head>
 <body>
 
   <div class="mobile-nav-overlay" id="mobileNav">
-    <div class="close-menu" onclick="toggleMenu()">×</div>
-    <a href="#sobre" onclick="toggleMenu()">Sobre</a>
-    <a href="#produto" onclick="toggleMenu()">Produto</a>
-    <a href="#galeria" onclick="toggleMenu()">Galeria</a>
-    <a href="https://shopee.com.br/shop/528135692" target="_blank"><strong>Ir para Shopee</strong></a>
-  </div>
+  <div class="close-menu" onclick="toggleMenu()">×
+  <a href="https://wa.me/5511942916224" target="_blank"><strong>WhatsApp</strong></a>
+  <a href="https://instagram.com/50onewear" target="_blank"><strong>Instagram</strong></a>
+</div>
+  <a href="#top" onclick="toggleMenu()">Início</a>
+  <a href="#cores" onclick="toggleMenu()">Cores</a>
+  <a href="#galeria" onclick="toggleMenu()">Galeria</a>
+  <a href="#medidas" onclick="toggleMenu()">Medidas</a>
+  <a href="#contato" onclick="toggleMenu()">Contato</a>
+  <a href="https://shopee.com.br/shop/528135692" target="_blank"><strong>Comprar na Shopee</strong></a>
+</div>
 
-  <div class="page">
+<div class="page">
     <header>
       <div class="container header-inner">
         <div class="logo-mark">
@@ -193,20 +331,48 @@
         </div>
 
         <nav class="desktop-nav">
-          <a href="#sobre">Sobre</a>
-          <a href="#produto">Produto</a>
-          <a href="#cores">Cores</a>
-          <a href="#galeria">Galeria</a>
-          <a href="#contato">Contato</a>
-        </nav>
+  <a href="#top">Início</a>
+  <a href="#cores">Cores</a>
+  <a href="#galeria">Galeria</a>
+  <a href="#medidas">Medidas</a>
+  <a href="#contato">Contato</a>
+</nav>
+
+        <div class="header-actions">
+          <a href="https://shopee.com.br/shop/528135692" target="_blank" rel="noopener" class="btn btn-primary btn-small">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <path d="M7 7V6a5 5 0 0 1 10 0v1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M6 7h12l1 14H5L6 7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+</svg><span>Comprar na Shopee</span>
+          </a>
+          <button onclick="openModal()" class="btn btn-ghost btn-small">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <path d="M4 20L20 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M6 18l2-2M8 20l2-2M10 22l2-2M12 16l2-2M14 18l2-2M16 20l2-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+</svg><span>Tabela de Medidas</span>
+          </button>
+          <div class="header-social" aria-label="Redes e contato">
+            <a class="icon-btn" href="https://wa.me/5511942916224" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <path d="M21 12a8 8 0 0 1-8 8H7l-4 3 1.2-4.7A8 8 0 1 1 21 12Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+</svg>
+            </a>
+            <a class="icon-btn" href="https://instagram.com/50onewear" target="_blank" rel="noopener" aria-label="Abrir Instagram">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+  <circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+  <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+</svg>
+            </a>
+          </div>
+        </div>
 
         <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
 
-        <a href="https://shopee.com.br/shop/528135692" target="_blank" class="btn btn-primary" style="display:none;">Shopee</a>
-        </div>
+</div>
     </header>
 
-    <main>
+    <main id="top">
       <section class="hero">
         <div class="container hero-grid">
           <div>
@@ -221,8 +387,14 @@
             </div>
 
             <div class="hero-ctas">
-              <a href="https://shopee.com.br/shop/528135692" target="_blank" class="btn btn-primary">Comprar na Shopee</a>
-              <button onclick="openModal()" class="btn btn-ghost">📏 Tabela de Medidas</button>
+              <a href="https://shopee.com.br/shop/528135692" target="_blank" class="btn btn-primary"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <path d="M7 7V6a5 5 0 0 1 10 0v1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M6 7h12l1 14H5L6 7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+</svg><span>Comprar na Shopee</span></a>
+              <button onclick="openModal()" class="btn btn-ghost"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <path d="M4 20L20 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M6 18l2-2M8 20l2-2M10 22l2-2M12 16l2-2M14 18l2-2M16 20l2-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+</svg><span>Tabela de Medidas</span></button>
             </div>
           </div>
 
@@ -234,7 +406,90 @@
         </div>
       </section>
 
-      <section id="cores">
+      
+<section class="cta-band" aria-label="Benefícios e compra">
+  <div class="container">
+    <div class="cta-card">
+      <div>
+        <h2 class="cta-title">Seu básico premium, sem complicação.</h2>
+        <p class="cta-text">Escolha sua cor, confira a tabela de medidas e compre com segurança pela Shopee. Se quiser, a gente te ajuda no WhatsApp com tamanho e combinações de kit.</p>
+
+        <div class="cta-actions">
+          <a href="https://shopee.com.br/shop/528135692" target="_blank" class="btn btn-primary"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <path d="M7 7V6a5 5 0 0 1 10 0v1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M6 7h12l1 14H5L6 7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+</svg><span>Comprar na Shopee</span></a>
+          <a href="https://wa.me/5511942916224" target="_blank" class="btn btn-dark-ghost"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <path d="M21 12a8 8 0 0 1-8 8H7l-4 3 1.2-4.7A8 8 0 1 1 21 12Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+</svg><span>Falar no WhatsApp</span></a>
+          <a href="#cores" class="btn btn-dark-ghost"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <path d="M12 3a9 9 0 1 0 0 18h2a3 3 0 0 0 0-6h-1a2 2 0 1 1 0-4h2a3 3 0 0 0 0-6h-5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+  <circle cx="7.5" cy="10" r="1" fill="currentColor"/>
+  <circle cx="9" cy="6.8" r="1" fill="currentColor"/>
+  <circle cx="6.2" cy="13.5" r="1" fill="currentColor"/>
+</svg><span>Ver cores</span></a>
+        </div>
+
+        <div class="cta-chips">
+          <span class="chip">Pagamento seguro</span>
+          <span class="chip">Envio para todo Brasil</span>
+          <span class="chip">Suporte de tamanho</span>
+        </div>
+      </div>
+
+      <div class="cta-side">
+        <div class="cta-side-title">Como funciona</div>
+        <ul class="cta-list">
+          <li>Selecione sua cor e tamanho</li>
+          <li>Finalize o pedido na Shopee</li>
+          <li>Receba em casa e aproveite o caimento</li>
+        </ul>
+        <div class="cta-side-note">Dica: para garantir o melhor ajuste, use a Tabela de Medidas antes de comprar.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="medidas" class="measure-section" aria-label="Tabela de medidas">
+  <div class="container">
+    <div class="measure-grid">
+      <div>
+        <h2 class="section-title">Tabela de Medidas</h2>
+        <p class="section-subtitle">Medidas aproximadas da peça (tolerância ± 2 cm). Se ficar na dúvida entre dois tamanhos, chama no WhatsApp.</p>
+
+        <div class="measure-actions">
+          <a href="https://wa.me/5511942916224" target="_blank" rel="noopener" class="btn btn-ghost">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <path d="M21 12a8 8 0 0 1-8 8H7l-4 3 1.2-4.7A8 8 0 1 1 21 12Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+</svg><span>Falar no WhatsApp</span>
+          </a>
+          <button onclick="openModal()" class="btn btn-ghost">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <path d="M4 20L20 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M6 18l2-2M8 20l2-2M10 22l2-2M12 16l2-2M14 18l2-2M16 20l2-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+</svg><span>Abrir em pop-up</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="measure-card">
+        <table class="size-table">
+          <tr><th>Tam</th><th>Altura</th><th>Largura</th></tr>
+          <tr><td>P</td><td>68 cm</td><td>50 cm</td></tr>
+          <tr><td>M</td><td>70 cm</td><td>52 cm</td></tr>
+          <tr><td>G</td><td>72 cm</td><td>54 cm</td></tr>
+          <tr><td>GG</td><td>74 cm</td><td>56 cm</td></tr>
+        </table>
+        <div class="measure-note">* Margem de tolerância: ± 2 cm</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="cores">
         <div class="container">
           <h2 class="section-title">Cores Essenciais</h2>
           <div class="colors-grid">
@@ -274,12 +529,62 @@
       </section>
     </main>
 
-    <footer id="contato">
+    
+<section id="contato" class="contact-section" aria-label="Contato">
+  <div class="container">
+    <h2 class="section-title">Contato</h2>
+    <p class="section-subtitle">Ajuda com tamanho, kits e dúvidas rápidas. A gente responde por WhatsApp.</p>
+
+    <div class="contact-grid">
+      <a class="contact-card" href="https://wa.me/5511942916224" target="_blank" rel="noopener">
+        <div class="contact-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <path d="M21 12a8 8 0 0 1-8 8H7l-4 3 1.2-4.7A8 8 0 1 1 21 12Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+</svg></div>
+        <div>
+          <div class="contact-title">WhatsApp</div>
+          <div class="contact-text">Atendimento rápido</div>
+        </div>
+      </a>
+
+      <a class="contact-card" href="https://instagram.com/50onewear" target="_blank" rel="noopener">
+        <div class="contact-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+  <circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+  <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+</svg></div>
+        <div>
+          <div class="contact-title">Instagram</div>
+          <div class="contact-text">@50onewear</div>
+        </div>
+      </a>
+
+      <a class="contact-card" href="https://shopee.com.br/shop/528135692" target="_blank" rel="noopener">
+        <div class="contact-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <path d="M7 7V6a5 5 0 0 1 10 0v1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M6 7h12l1 14H5L6 7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+</svg></div>
+        <div>
+          <div class="contact-title">Shopee</div>
+          <div class="contact-text">Comprar com segurança</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<footer id="rodape">
       <div class="container footer-row">
         <div>© 2025 50OneWear.</div>
         <div class="footer-links">
-          <a href="https://wa.me/5511942916224" target="_blank">WhatsApp</a>
-          <a href="https://instagram.com/50onewear" target="_blank">Instagram</a>
+          <a href="https://wa.me/5511942916224" target="_blank"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <path d="M21 12a8 8 0 0 1-8 8H7l-4 3 1.2-4.7A8 8 0 1 1 21 12Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+</svg><span>WhatsApp</span></a>
+          <a href="https://instagram.com/50onewear" target="_blank"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+  <circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+  <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+</svg><span>Instagram</span></a>
         </div>
       </div>
     </footer>
