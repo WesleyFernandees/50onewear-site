@@ -246,6 +246,86 @@
 
     .site-footer{ padding: 20px 0; }
 
+
+    /* Accordions (Informações Técnicas / Lavagem) */
+    .accordions{
+      background:#fff;
+      border:1px solid rgba(0,0,0,.06);
+      border-radius: 18px;
+      overflow:hidden;
+      box-shadow: 0 12px 30px rgba(0,0,0,.06);
+    }
+    details.acc{
+      border-top: 1px solid rgba(0,0,0,.06);
+      padding: 0;
+      background:#fff;
+    }
+    details.acc:first-child{ border-top:none; }
+    summary.acc-summary{
+      list-style:none;
+      cursor:pointer;
+      padding: 16px 16px;
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      font-weight: 700;
+    }
+    summary.acc-summary::-webkit-details-marker{ display:none; }
+    .acc-ico{
+      width: 36px; height:36px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.04);
+      border: 1px solid rgba(0,0,0,.06);
+      display:flex; align-items:center; justify-content:center;
+      flex: 0 0 auto;
+      font-size: 18px;
+    }
+    .acc-title{ flex: 1 1 auto; }
+    .acc-chevron{
+      width: 10px; height: 10px;
+      border-right: 2px solid rgba(0,0,0,.55);
+      border-bottom: 2px solid rgba(0,0,0,.55);
+      transform: rotate(45deg);
+      transition: transform .2s ease;
+      margin-left: auto;
+    }
+    details[open] summary .acc-chevron{ transform: rotate(-135deg); }
+    .acc-body{
+      padding: 0 16px 16px 16px;
+      color:#444;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .acc-list{
+      margin: 0; padding-left: 18px;
+    }
+    .acc-list li{ margin: 8px 0; }
+    .muted{ color:#777; font-size: 12px; margin-top: 10px; }
+    .product-grid{
+      display:grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 18px;
+      align-items:start;
+      margin-top: 14px;
+    }
+    .product-copy{
+      background: rgba(255,255,255,.6);
+      border: 1px solid rgba(0,0,0,.06);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .product-copy .mini-bullets{
+      display:flex; flex-wrap:wrap; gap: 8px;
+      margin-top: 12px;
+    }
+    .mini-pill{
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.08);
+      font-size: 12px;
+      color:#333;
+    }
   </style>
 
   <style>
@@ -263,6 +343,7 @@
     <div class="mobile-nav-overlay" id="mobileNav">
     <div class="close-menu" onclick="toggleMenu()">×</div>
     <a href="#inicio" onclick="toggleMenu()">Início</a>
+    <a href="#produto" onclick="toggleMenu()">Produto</a>
     <a href="#cores" onclick="toggleMenu()">Cores</a>
     <a href="#galeria" onclick="toggleMenu()">Galeria</a>
     <a href="#medidas" onclick="toggleMenu()">Medidas</a>
@@ -282,6 +363,7 @@
 
         <nav class="desktop-nav">
           <a href="#inicio">Início</a>
+          <a href="#produto">Produto</a>
           <a href="#cores">Cores</a>
           <a href="#galeria">Galeria</a>
           <a href="#medidas">Medidas</a>
@@ -349,6 +431,72 @@
                 <li>Receba em casa e aproveite o caimento</li>
               </ul>
               <div class="dark-tip">Dica: para garantir o melhor ajuste, use a Tabela de Medidas antes de comprar.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<section id="produto" class="product">
+        <div class="container">
+          <h2 class="section-title">O que torna nossa camiseta premium</h2>
+          <p class="section-description">Pensada para quem gosta de se vestir bem com praticidade: tecido macio, caimento elegante e acabamento reforçado para o uso diário.</p>
+
+          <div class="product-grid">
+            <div class="product-copy">
+              <p><strong>A combinação perfeita entre sofisticação e conforto.</strong> Confeccionada em algodão premium com elastano, a 50One Wear oferece respirabilidade, toque macio e durabilidade para acompanhar sua rotina.</p>
+              <p style="margin-top:10px;">O elastano garante <strong>ajuste natural ao corpo</strong>, sem limitar os movimentos — ideal para o dia a dia, trabalho ou composições urbanas.</p>
+
+              <div class="mini-bullets" aria-label="Destaques rápidos">
+                <span class="mini-pill">Algodão premium + elastano</span>
+                <span class="mini-pill">Slim Fit moderno</span>
+                <span class="mini-pill">Gola reforçada</span>
+                <span class="mini-pill">Acabamento premium</span>
+              </div>
+
+              <div class="hero-ctas" style="margin-top:14px;">
+                <a href="https://shopee.com.br/shop/528135692" target="_blank" class="btn btn-primary">Comprar na Shopee</a>
+                <a href="https://wa.me/5511942916224" target="_blank" class="btn btn-ghost">Tirar dúvida no WhatsApp</a>
+              </div>
+
+              <div class="muted">*As cores podem variar levemente conforme a tela do seu dispositivo.</div>
+            </div>
+
+            <div class="accordions" aria-label="Detalhes do produto">
+              <details class="acc">
+                <summary class="acc-summary">
+                  <span class="acc-ico">📄</span>
+                  <span class="acc-title">Informações Técnicas</span>
+                  <span class="acc-chevron" aria-hidden="true"></span>
+                </summary>
+                <div class="acc-body">
+                  <ul class="acc-list">
+                    <li>Camiseta lisa premium</li>
+                    <li>Tecido: algodão com elastano</li>
+                    <li>Modelagem Slim Fit (levemente ajustada)</li>
+                    <li>Reforço ombro a ombro</li>
+                    <li>Bainha reforçada</li>
+                    <li>Gola com ótimo acabamento</li>
+                    <li>Alta resistência ao uso e ao desbotamento</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="acc">
+                <summary class="acc-summary">
+                  <span class="acc-ico">🧼</span>
+                  <span class="acc-title">Lavagem e Cuidado</span>
+                  <span class="acc-chevron" aria-hidden="true"></span>
+                </summary>
+                <div class="acc-body">
+                  <ul class="acc-list">
+                    <li>Não alvejar</li>
+                    <li>Não secar em tambor</li>
+                    <li>Evite torcer a peça após a lavagem</li>
+                    <li>Lavar em água fria (até 20°C)</li>
+                    <li>Secar à sombra</li>
+                  </ul>
+                </div>
+              </details>
             </div>
           </div>
         </div>
