@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>50oneWear – Premium Plain Tees</title>
-  <meta name="description" content="Camisetas lisas premium (Slim Fit). Algodão com elastano. Simplicidade que funciona.">
+  <meta name="description" content="Camisetas lisas premium. Algodão Pima com elastano. Caimento impecável e caixa exclusiva.">
   <meta property="og:title" content="50OneWear – Premium Plain Tees">
   <meta property="og:image" content="assets/infuencer.png">
 
@@ -54,8 +54,7 @@
     .logo-mark { display: flex; align-items: center; gap: 10px; }
     .logo-mark img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
     .logo-word { font-family: 'Playfair Display', serif; font-size: 24px; }
-    .logo-sub { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #666; margin-top: 2px; }
-
+    
     /* MENU DESKTOP */
     nav.desktop-nav { display: flex; gap: 20px; font-size: 14px; color: var(--text-soft); }
     nav.desktop-nav a:hover { color: var(--accent); text-decoration: underline; }
@@ -112,14 +111,15 @@
     .section-title { font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 10px; }
     .section-description { margin-bottom: 30px; color: var(--text-soft); max-width: 600px; }
 
-    
-    .section-subtitle { margin-bottom: 18px; color: var(--text-soft); max-width: 600px; line-height: 1.5; }
-/* GRID DE CORES */
+    /* GRID DE CORES */
     .colors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
     .color-card { background: #fff; padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
     .swatch { width: 32px; height: 32px; border-radius: 50%; margin-bottom: 10px; border: 1px solid #eee; }
-    .swatch.black { background: #000; } .swatch.white { background: #fff; } 
-    .swatch.navy { background: #1a237e; } .swatch.grey { background: #757575; } .swatch.green { background: #2e7d32; }
+    .swatch.black { background: #000; }
+    .swatch.offwhite { background: #f3efe6; border: 1px solid #e6e0d6; }
+    .swatch.navy { background: #101827; }
+    .swatch.grey { background: #3f3f46; }
+    .swatch.olive { background: #556b2f; }
 
     /* GALERIA CARROSSEL */
     .gallery-wrapper { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 18px; align-items: start; --galleryH: clamp(170px, 18vw, 230px); }
@@ -157,41 +157,8 @@
     .footer-links img { width: 18px; opacity: 0.7; }
 
     /* RESPONSIVIDADE */
-    @media (max-width: 1100px) {
-      nav.desktop-nav { display: none !important; }
-      .mobile-menu-btn { display: block; }
-      .header-ctas { display: none; } /* no mobile, usa botão do hero */
-    }
-
     @media (max-width: 900px) {
-      /* Header: evita sobreposição no celular */
-      .header-inner { flex-wrap: wrap; gap: 10px; padding: 10px 0; }
-      .logo-mark { gap: 8px; min-width: 0; }
-      .logo-mark img { width: 40px; height: 40px; }
-      .logo-mark > div { min-width: 0; }
-      .logo-word { font-size: 20px; line-height: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 210px; }
-      .logo-sub  { font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 210px; }
-
-      /* Hero: 1 coluna */
-      .hero-grid { grid-template-columns: 1fr; gap: 22px; }
-      .hero { text-align: center; }
-      .hero-ctas, .hero-badges { justify-content: center; }
-      .hero-media { max-width: 420px; margin: 0 auto; }
-      .hero-card { height: clamp(240px, 60vw, 360px); }
-
-      /* Produto: 1 coluna */
-      .product-grid { grid-template-columns: 1fr; }
-      .accordions { margin-top: 10px; }
-
-      /* Galeria e demais seções já empilham */
-      .gallery-wrapper { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
-
-      /* Footer */
-      .footer-row { justify-content: center; flex-direction: column; text-align: center; }
-      .footer-links a { margin: 5px 10px; }
-    }
-
+      .hero-grid, .gallery-wrapper { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 18px; align-items: start; --galleryH: clamp(170px, 18vw, 230px); }
       .desktop-nav { display: none; }
       .mobile-menu-btn { display: block; }
       .hero { text-align: center; }
@@ -282,86 +249,6 @@
 
     .site-footer{ padding: 20px 0; }
 
-
-    /* Accordions (Informações Técnicas / Lavagem) */
-    .accordions{
-      background:#fff;
-      border:1px solid rgba(0,0,0,.06);
-      border-radius: 18px;
-      overflow:hidden;
-      box-shadow: 0 12px 30px rgba(0,0,0,.06);
-    }
-    details.acc{
-      border-top: 1px solid rgba(0,0,0,.06);
-      padding: 0;
-      background:#fff;
-    }
-    details.acc:first-child{ border-top:none; }
-    summary.acc-summary{
-      list-style:none;
-      cursor:pointer;
-      padding: 16px 16px;
-      display:flex;
-      align-items:center;
-      gap: 12px;
-      font-weight: 700;
-    }
-    summary.acc-summary::-webkit-details-marker{ display:none; }
-    .acc-ico{
-      width: 36px; height:36px;
-      border-radius: 999px;
-      background: rgba(0,0,0,.04);
-      border: 1px solid rgba(0,0,0,.06);
-      display:flex; align-items:center; justify-content:center;
-      flex: 0 0 auto;
-      font-size: 18px;
-    }
-    .acc-title{ flex: 1 1 auto; }
-    .acc-chevron{
-      width: 10px; height: 10px;
-      border-right: 2px solid rgba(0,0,0,.55);
-      border-bottom: 2px solid rgba(0,0,0,.55);
-      transform: rotate(45deg);
-      transition: transform .2s ease;
-      margin-left: auto;
-    }
-    details[open] summary .acc-chevron{ transform: rotate(-135deg); }
-    .acc-body{
-      padding: 0 16px 16px 16px;
-      color:#444;
-      font-size: 14px;
-      line-height: 1.55;
-    }
-    .acc-list{
-      margin: 0; padding-left: 18px;
-    }
-    .acc-list li{ margin: 8px 0; }
-    .muted{ color:#777; font-size: 12px; margin-top: 10px; }
-    .product-grid{
-      display:grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 18px;
-      align-items:start;
-      margin-top: 14px;
-    }
-    .product-copy{
-      background: rgba(255,255,255,.6);
-      border: 1px solid rgba(0,0,0,.06);
-      border-radius: 18px;
-      padding: 16px;
-    }
-    .product-copy .mini-bullets{
-      display:flex; flex-wrap:wrap; gap: 8px;
-      margin-top: 12px;
-    }
-    .mini-pill{
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: #fff;
-      border: 1px solid rgba(0,0,0,.08);
-      font-size: 12px;
-      color:#333;
-    }
   </style>
 
   <style>
@@ -379,7 +266,6 @@
     <div class="mobile-nav-overlay" id="mobileNav">
     <div class="close-menu" onclick="toggleMenu()">×</div>
     <a href="#inicio" onclick="toggleMenu()">Início</a>
-    <a href="#produto" onclick="toggleMenu()">Produto</a>
     <a href="#cores" onclick="toggleMenu()">Cores</a>
     <a href="#galeria" onclick="toggleMenu()">Galeria</a>
     <a href="#medidas" onclick="toggleMenu()">Medidas</a>
@@ -399,7 +285,6 @@
 
         <nav class="desktop-nav">
           <a href="#inicio">Início</a>
-          <a href="#produto">Produto</a>
           <a href="#cores">Cores</a>
           <a href="#galeria">Galeria</a>
           <a href="#medidas">Medidas</a>
@@ -421,12 +306,13 @@
           <div>
             <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #666; margin-bottom: 10px;">Lançamento Oficial</div>
             <h1 class="hero-title">Camisetas lisas para quem valoriza o essencial.</h1>
-            <p class="hero-subtitle">Modelagem Slim Fit, Algodão com Elastano e durabilidade. A peça chave do seu guarda-roupa.</p>
+            <p class="hero-subtitle">Modelagem premium, Algodão Pima com Elastano e acabamento de alto padrão. A peça chave do seu guarda-roupa.</p>
 
             <div class="hero-badges">
-              <div class="badge">Algodão Premium</div>
+              <div class="badge">Algodão Pima</div>
               <div class="badge">Elastano</div>
               <div class="badge">Não desbota</div>
+              <div class="badge">Caixa exclusiva</div>
             </div>
 
             <div class="hero-ctas">
@@ -472,72 +358,6 @@
         </div>
       </section>
 
-<section id="produto" class="product">
-        <div class="container">
-          <h2 class="section-title">O que torna nossa camiseta premium</h2>
-          <p class="section-description">Pensada para quem gosta de se vestir bem com praticidade: tecido macio, caimento elegante e acabamento reforçado para o uso diário.</p>
-
-          <div class="product-grid">
-            <div class="product-copy">
-              <p><strong>A combinação perfeita entre sofisticação e conforto.</strong> Confeccionada em algodão premium com elastano, a 50One Wear oferece respirabilidade, toque macio e durabilidade para acompanhar sua rotina.</p>
-              <p style="margin-top:10px;">O elastano garante <strong>ajuste natural ao corpo</strong>, sem limitar os movimentos — ideal para o dia a dia, trabalho ou composições urbanas.</p>
-
-              <div class="mini-bullets" aria-label="Destaques rápidos">
-                <span class="mini-pill">Algodão premium + elastano</span>
-                <span class="mini-pill">Slim Fit moderno</span>
-                <span class="mini-pill">Gola reforçada</span>
-                <span class="mini-pill">Acabamento premium</span>
-              </div>
-
-              <div class="hero-ctas" style="margin-top:14px;">
-                <a href="https://shopee.com.br/shop/528135692" target="_blank" class="btn btn-primary">Comprar na Shopee</a>
-                <a href="https://wa.me/5511942916224" target="_blank" class="btn btn-ghost">Tirar dúvida no WhatsApp</a>
-              </div>
-
-              <div class="muted">*As cores podem variar levemente conforme a tela do seu dispositivo.</div>
-            </div>
-
-            <div class="accordions" aria-label="Detalhes do produto">
-              <details class="acc">
-                <summary class="acc-summary">
-                  <span class="acc-ico">📄</span>
-                  <span class="acc-title">Informações Técnicas</span>
-                  <span class="acc-chevron" aria-hidden="true"></span>
-                </summary>
-                <div class="acc-body">
-                  <ul class="acc-list">
-                    <li>Camiseta lisa premium</li>
-                    <li>Tecido: algodão com elastano</li>
-                    <li>Modelagem Slim Fit (levemente ajustada)</li>
-                    <li>Reforço ombro a ombro</li>
-                    <li>Bainha reforçada</li>
-                    <li>Gola com ótimo acabamento</li>
-                    <li>Alta resistência ao uso e ao desbotamento</li>
-                  </ul>
-                </div>
-              </details>
-
-              <details class="acc">
-                <summary class="acc-summary">
-                  <span class="acc-ico">🧼</span>
-                  <span class="acc-title">Lavagem e Cuidado</span>
-                  <span class="acc-chevron" aria-hidden="true"></span>
-                </summary>
-                <div class="acc-body">
-                  <ul class="acc-list">
-                    <li>Não alvejar</li>
-                    <li>Não secar em tambor</li>
-                    <li>Evite torcer a peça após a lavagem</li>
-                    <li>Lavar em água fria (até 20°C)</li>
-                    <li>Secar à sombra</li>
-                  </ul>
-                </div>
-              </details>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section id="medidas" class="measures">
         <div class="container measures-grid">
           <div>
@@ -566,13 +386,44 @@
 
       <section id="cores">
         <div class="container">
-          <h2 class="section-title">Cores Essenciais</h2>
+          <h2 class="section-title">Cores de Entrada</h2>
+          <p class="section-description">A base da coleção: tons essenciais, atemporais e fáceis de combinar — perfeitos para kits.</p>
+
+          <div class="colors-grid" style="margin-bottom: 18px;">
+            <div class="color-card">
+              <div class="swatch black"></div>
+              <strong>Preto</strong>
+              <div style="color:#666; font-size:12px; margin-top:6px;">Essencial absoluto</div>
+            </div>
+
+            <div class="color-card">
+              <div class="swatch offwhite"></div>
+              <strong>Off-White</strong>
+              <div style="color:#666; font-size:12px; margin-top:6px;">Luxo discreto</div>
+            </div>
+
+            <div class="color-card">
+              <div class="swatch navy"></div>
+              <strong>Azul Marinho</strong>
+              <div style="color:#666; font-size:12px; margin-top:6px;">Sofisticação diária</div>
+            </div>
+          </div>
+
+          <h3 style="font-family: 'Playfair Display', serif; font-size: 22px; margin: 10px 0 8px;">Em breve na coleção</h3>
+          <p class="section-description">Novas cores planejadas para ampliar combinações sem perder o posicionamento premium.</p>
+
           <div class="colors-grid">
-            <div class="color-card"><div class="swatch white"></div><strong>Branco</strong></div>
-            <div class="color-card"><div class="swatch black"></div><strong>Preto</strong></div>
-            <div class="color-card"><div class="swatch navy"></div><strong>Azul Marinho</strong></div>
-            <div class="color-card"><div class="swatch grey"></div><strong>Cinza Chumbo</strong></div>
-            <div class="color-card"><div class="swatch green"></div><strong>Verde Musgo</strong></div>
+            <div class="color-card">
+              <div class="swatch grey"></div>
+              <strong>Cinza Chumbo</strong>
+              <div style="color:#666; font-size:12px; margin-top:6px;">Alternativa ao preto</div>
+            </div>
+
+            <div class="color-card">
+              <div class="swatch olive"></div>
+              <strong>Verde Musgo</strong>
+              <div style="color:#666; font-size:12px; margin-top:6px;">Tom “rico” e neutro</div>
+            </div>
           </div>
         </div>
       </section>
